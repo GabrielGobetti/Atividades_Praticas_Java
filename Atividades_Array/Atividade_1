@@ -1,1 +1,51 @@
 
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        ArrayList<Integer> numDigitados = new ArrayList<Integer>();
+        boolean numRepetido = false;
+
+        while (!numRepetido) {
+            System.out.println("Digite um numero inteiro positivo");
+            int num = sc.nextInt();
+
+            if (num <= 0){
+                System.out.println("Digite apenas numeros inteiros e positivos");
+                continue;
+
+            }
+
+            boolean encontrado = false;
+
+            for (int i = 0; i < numDigitados.size(); i++){
+                if (numDigitados.get(i) == num){
+                    encontrado = true;
+                    break;
+                }
+            }
+            if (encontrado){
+                numRepetido = true;
+            }
+            else {
+                numDigitados.add(num);
+            }
+        }
+        int soma = 0;
+        for (int i = 0; i < numDigitados.size();i++){
+            soma += numDigitados.get(i);
+
+        }
+
+        double media = 0;
+
+        if (numDigitados.size() > 0 ){
+            media =(double) soma / numDigitados.size();
+        }
+        System.out.println("Media dos numeros unicos digitados : "+media);
+
+
+    }
+}
