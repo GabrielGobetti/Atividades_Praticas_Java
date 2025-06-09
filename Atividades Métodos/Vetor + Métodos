@@ -1,0 +1,71 @@
+Faça um programa que descubra:
+a) O maior elemento de um vetor
+b) O menor elemento de um vetor
+c) A média dos valores
+
+------------------------------------------------------
+
+import java.util.Scanner;
+
+public class Main {
+    public static void mediaVetores(int vetor[]){
+        int i = 0;
+        int soma = 0;
+        double divisao;
+        while ( i < vetor.length){
+        soma += vetor[i];
+            i++;
+        }
+        divisao =  (double) soma / vetor.length;
+        System.out.println(divisao);
+    }
+
+    public static void menorElemento(int vetor[]){
+        int menorNumero = vetor[0];
+        int i = 0;
+        while ( i < vetor.length){
+
+            if (vetor[i] < menorNumero) {
+                menorNumero = vetor[i];
+            }
+            i++;
+        }
+        System.out.println(menorNumero);
+    }
+
+    public static void maiorElementoVetor(int vetor[]){
+        int maiorNumero = vetor[0];
+        int i = 0;
+    while ( i < vetor.length){
+
+        if (vetor[i] > maiorNumero) {
+            maiorNumero = vetor[i];
+        }
+    i++;
+    }
+        System.out.println(maiorNumero);
+    }
+    public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+
+        int[] num = new int[5];
+
+
+        int i = 0;
+        while (i < num.length) {
+            System.out.println("Digite o " +(i+1)+ " Numero");
+
+            num[i] = sc.nextInt();
+            i++;
+        }
+        System.out.println("o maior elemento do vetor é  ");
+        maiorElementoVetor(num);
+        System.out.println("O menor elemento do vetor é");
+        menorElemento(num);
+        System.out.println("A media dos vetores foi ");
+        mediaVetores(num);
+
+        }
+    }
+
+
