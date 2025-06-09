@@ -1,0 +1,49 @@
+import java.util.Scanner;
+
+//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
+// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Escolha um nome para buscar\n Carlos - Ana - Renata - Paulo");
+        String nome = "";
+        nome =sc.next();
+
+        if (nome.equalsIgnoreCase("Renata")) {
+            renata();
+        }
+        else if (nome.equalsIgnoreCase("Ana")){
+            ana();
+        }
+        else if (nome.equalsIgnoreCase("Carlos")){
+            carlos();
+        }
+        else if (nome.equalsIgnoreCase("Paulo")) {
+            paulo();
+        }
+        else {
+            System.out.println("Errou");
+        }
+
+    }
+    public static void carlos() {
+        System.out.println("O nome dele é Carlos\n" +
+                "Ele tem 16 anos\n" +
+                "Ele é estudante do SENAI");
+    }
+    public static void renata() {
+        System.out.println("O nome dela é Renata\n" +
+                "Ela tem 17 anos\n" +
+                "Ela é estudante do SENAI");
+    }
+    public static void ana() {
+        System.out.println("O nome dela é Ana\n" +
+                "Ela tem 15 anos\n" +
+                "Ela é estudante do SENAI");
+    }
+    public static void paulo() {
+        System.out.println("O nome dele é Paulo\n" +
+                "Ele tem 16 anos\n" +
+                "Ele é estudante do SENAI");
+    }
+}
