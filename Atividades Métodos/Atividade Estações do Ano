@@ -1,0 +1,52 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+            int numeroSelecionado;
+
+
+        System.out.println("Coloque um numero de 1 a 4 \n 1 - Verão 2 - Outono\n 3 - Inverno 4 - Primavera");
+        numeroSelecionado = sc.nextInt();
+        switch (numeroSelecionado) {
+            case 1 :
+                verao();
+                break;
+            case 2 :
+                Outono();
+                break;
+            case 3 :
+                Inverno();
+                break;
+            case 4 :
+                Primavera();
+                break;
+            default:
+                System.out.println("Numero selecionado não aceito");
+                return;
+
+        }
+
+    }
+ public static void verao() {
+        String nome = "Verão";
+        System.out.println("É "+nome);
+        System.out.println("Está quente");
+
+ }
+    public static void Inverno() {
+        String nome = "Inverno";
+        System.out.println("É " + nome);
+        System.out.println("Está Frio");
+    }
+    public static void Outono() {
+        String nome = "Outono";
+        System.out.println("É " + nome);
+        System.out.println("Está Fresco");
+    }
+    public static void Primavera() {
+        String nome = "Primavera";
+        System.out.println("É " + nome);
+        System.out.println("Está Fresco");
+    }
+}
