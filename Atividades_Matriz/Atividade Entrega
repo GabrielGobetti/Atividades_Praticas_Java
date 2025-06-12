@@ -1,0 +1,87 @@
+    import java.util.Scanner;
+
+    public class Main {
+
+
+        public static double mediaTemp(double num1,double num2)  {
+            return num1/num2;
+        }
+
+        public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in); // SCANNER
+            //Criação de Variaveis
+            String[] cidades = {"Blumenau","Itajai","Timbó","Gaspar"};
+            String[] diasSemana = {"Segunda","Terça","Quarta","Quinta","Sexta","Sabado","Domingo"};
+            double[][] cidadeDia = new double[4][7];
+            double[] temperaturas = new double[7];
+            double[] soma = new double[4];
+            double[] media = new double[4];
+            double maiorTemp;
+            double menorTemp;
+            double[] maiorTempCidade = new double[4];
+            double[] menorTempCidade = new double[4];
+            String cidadeMaior = "";
+            String cidadeMenor = "";
+
+            for (int l = 0;l < 4;l++){ // For para Colocar as informações nas cidades
+                maiorTemp = -999;
+                menorTemp = 999;
+                System.out.println("Fale a Temperatura para Cada dia da semana da cidade "+cidades[l]);
+                for (int j = 0;j < 7;j++){ // For para colocar as temperaturas nos dias semanas
+
+                    System.out.println("Temperatura de "+diasSemana[j]);
+                cidadeDia[l][j] = sc.nextDouble();
+                if (maiorTemp < cidadeDia[l][j]){
+                    maiorTemp = cidadeDia[l][j];
+                }
+                else if (menorTemp > cidadeDia[l][j]){
+                    menorTemp = cidadeDia[l][j];
+                }
+
+                soma[l] += cidadeDia[l][j];
+                    System.out.println("Maior temp"+maiorTemp);
+                    System.out.println("menor temp"+menorTemp);
+                    maiorTempCidade[l] = maiorTemp;
+                    menorTempCidade[l] = menorTemp;
+
+                }
+                System.out.println("Maior temp da cidade Salva" +maiorTempCidade[l]);
+                maiorTempCidade[l] = maiorTemp;
+
+                menorTempCidade[l] = menorTemp;
+                media[l] = mediaTemp(soma[l] , 7);
+
+            }
+
+            double maiorEntreTodas = -999;
+            for (int i = 0;i < 4 ; i++){
+
+                if (maiorTempCidade[i] > maiorEntreTodas) {
+                    maiorEntreTodas = maiorTempCidade[i];
+                    cidadeMaior = cidades[i];
+                }
+
+            }
+            System.out.println("Maior Temp Registrada " + maiorEntreTodas + " Cidade Registrada "+ cidadeMaior);
+
+            double menorEntreTodas = 999;
+            for (int i = 0;i < 4 ; i++){
+
+                if (menorTempCidade[i] < menorEntreTodas) {
+                    menorEntreTodas = menorTempCidade[i];
+                    cidadeMenor = cidades[i];
+                }
+
+
+            }
+            System.out.println("Esse é o menor tempo " +cidadeMenor + menorEntreTodas);
+
+            for (int i = 0;i<4; i++) {
+                System.out.println("A media da cidade "+cidades[i]+" Foi " + media[i]);
+
+            }
+
+
+            }
+
+        }
