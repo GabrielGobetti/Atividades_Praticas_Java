@@ -1,0 +1,106 @@
+import java.util.Scanner;
+
+public class Main {
+
+    public static double mediaTemp(double num1,double num2)  {
+        return num1/num2;
+    }
+    public static void resumoDeCadaCity(String[] cidades,int[] contadorDias, double[] media){
+        System.out.println("*****RESUMO*POR*CIDADE*****");
+        for (int i = 0; i<4;i++){
+            System.out.println(" *Cidade "+cidades[i]+"*");
+            if (media[i] < 15 ) {
+                System.out.println("A média da temperatura de "+cidades[i]+" foi considerada fria durante essa semana");
+                System.out.println("A quantidade de dias que a temperatura foi abaixo de 15 foram: "+contadorDias[i]);
+                System.out.println();
+            }
+            else if (media[i] >= 15 && media[i] <= 25 ) {
+                System.out.println("Média da temperatura de "+cidades[i]+" foi considerada normal durante essa semana");
+                System.out.println("Quantidade de dias que a temperatura foi abaixo de 15 foram: "+contadorDias[i]);
+                System.out.println();
+            }
+            else  {
+                System.out.println("Média da temperatura de "+cidades[i]+" foi considerada alta durante essa semana");
+                System.out.println("Quantidade de dias que a temperatura foi abaixo de 15 foram: "+contadorDias[i]);
+                System.out.println();
+            }
+        }
+
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in); // SCANNER
+        //Criação de Variaveis
+        String[] cidades = {"Blumenau", "Itajai", "Timbó", "Gaspar"};
+        String[] diasSemana = {"Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sabado", "Domingo"};
+        double[][] cidadeDia = new double[4][7];
+        double[] soma = new double[4];
+        double[] media = new double[4];
+        double maiorTemp;
+        double menorTemp;
+        double[] maiorTempCidade = new double[4];
+        double[] menorTempCidade = new double[4];
+        String cidadeMaior = "";
+        String cidadeMenor = "";
+
+        for (int l = 0; l < 4; l++) { // For para Colocar as informações nas cidades
+            maiorTemp = -999;
+            menorTemp = 999;
+            System.out.println("Fale a Temperatura para Cada dia da semana da cidade " + cidades[l]);
+            for (int j = 0; j < 7; j++) { // For para colocar as temperaturas nos dias semanas
+
+                System.out.println("Temperatura de " + diasSemana[j]);
+                cidadeDia[l][j] = sc.nextDouble();
+                if (maiorTemp < cidadeDia[l][j]) {
+                    maiorTemp = cidadeDia[l][j];
+                } if (menorTemp > cidadeDia[l][j]) {
+                    menorTemp = cidadeDia[l][j];
+                }
+
+                soma[l] += cidadeDia[l][j];
+
+                maiorTempCidade[l] = maiorTemp;
+                menorTempCidade[l] = menorTemp;
+            }
+            maiorTempCidade[l] = maiorTemp;
+
+            menorTempCidade[l] = menorTemp;
+            media[l] = mediaTemp(soma[l], 7);
+        }
+        double maiorEntreTodas = -999;
+        for (int i = 0; i < 4; i++) {
+
+            if (maiorTempCidade[i] > maiorEntreTodas) {
+                maiorEntreTodas = maiorTempCidade[i];
+                cidadeMaior = cidades[i];
+            }
+        }
+        double menorEntreTodas = 999;
+        for (int i = 0; i < 4; i++) {
+
+            if (menorTempCidade[i] < menorEntreTodas) {
+                menorEntreTodas = menorTempCidade[i];
+                cidadeMenor = cidades[i];
+            }
+        }
+        int[] contadorDiasMenor15 = new int[4];
+        for (int i = 0; i < 4;i++){
+
+            for (int j = 0; j < 7; j++){
+                if (cidadeDia[i][j] <= 15) {
+                    contadorDiasMenor15[i]++;
+                }
+            }
+        }
+        System.out.println("*****TEMPERATURAS*REGISTRADAS*****");
+        for (int i = 0; i < 4; i++){
+            System.out.println("Cidade " +cidades[i]);
+            System.out.printf("A media da cidade foi: %.2f ", media[i]);
+            System.out.println();
+            System.out.println();
+        }
+            resumoDeCadaCity(cidades,contadorDiasMenor15,media);
+        System.out.println("*****RESUMO*GERAL*****");
+        System.out.println("A maior temperatura Registrada entre todas as cidades foi em: "+cidadeMaior+" e foi: " + maiorEntreTodas);
+        System.out.println("A menor Temperatura Registrada entre todas as cidades foi em: "+cidadeMenor+" e foi: " + menorEntreTodas);
+    }
+}
