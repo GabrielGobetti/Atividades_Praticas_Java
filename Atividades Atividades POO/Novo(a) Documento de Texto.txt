@@ -1,0 +1,46 @@
+public class Carro {
+    String marca;
+    String modelo;
+    int ano;
+    double velocidadeAtual;
+    public Carro(String marca,String modelo,int ano){
+        this.marca = marca;
+        this.modelo = modelo;
+        this.ano = ano;
+        this.velocidadeAtual = 0;
+
+        }
+
+        public void mostrarInfos() {
+            System.out.println("A marca do carro é "+ marca);
+            System.out.println("O modelo do carro é "+modelo);
+            System.out.println("O ano do carro é "+ano);
+
+    }
+    public void acelerar(){
+        velocidadeAtual += 10;
+        System.out.println("O " +modelo+ " está acelerando\nA velocidade é "+velocidadeAtual);
+
+    }
+
+}
+
+
+_____________________main_________________________
+
+
+
+    public class Main {
+
+        public static void main(String[] args) {
+        Carro car1 = new Carro("Ford","Ford Ka",2016);
+
+
+        car1.mostrarInfos();
+        car1.acelerar();
+            }
+        }
+
+
+
+
