@@ -1,0 +1,42 @@
+public class Pessoa {
+    String nome;
+    String sexo;
+    String estadoCivil;
+    String dataNascimento;
+
+    public Pessoa(String n,String s, String estadoCiv,String dataNasc) {
+        nome = n;
+        sexo = s;
+        estadoCivil = estadoCiv;
+        dataNascimento = dataNasc;
+    }
+
+    public  void mostrarInfos() {
+        if (sexo.equalsIgnoreCase("Feminino")){
+            System.out.println("O nome dela é "+nome);
+            System.out.println("O sexo dela é "+sexo);
+            System.out.println("O estado civil dela pessoa é "+estadoCivil);
+            System.out.println("A data de nascimento dela é "+dataNascimento);
+        }
+        else{
+            System.out.println("O nome dela é "+nome);
+            System.out.println("O sexo dele é "+sexo);
+            System.out.println("O estado civil dele é "+estadoCivil);
+            System.out.println("A data de nascimento dele é "+dataNascimento);
+        }
+
+    }
+}
+
+
+Main--------------------------
+public class Main {
+    public static void main(String[] args) {
+        Pessoa p1 = new Pessoa("Carara","Masculino","Solteiro","31/07/2008");
+        Pessoa p2 = new Pessoa("Gisele","Feminino","Casada","16/06/1982");
+
+        p1.mostrarInfos();
+        System.out.println();
+        p2.mostrarInfos();
+    }
+}
