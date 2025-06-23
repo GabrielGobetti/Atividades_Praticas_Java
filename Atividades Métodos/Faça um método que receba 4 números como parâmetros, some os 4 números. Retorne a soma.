@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
+// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+public class Main {
+    public static double soma(double num1,double num2,double num3, double num4){
+        double result = num1 + num2 +num3 +num4;
+        return result;
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        double[] numeros = new double[4];
+        System.out.println("Coloque 4 numeros");
+        for (int i = 0; i < 4; i++){
+            System.out.println("Digite o "+(i+1)+" Numero");
+            numeros[i] = sc.nextDouble();
+
+        }
+        double resultado = soma(numeros[0],numeros[1],numeros[2],numeros[3]);
+        System.out.println("A soma dos numeros foi: "+resultado);
+    }
+}
