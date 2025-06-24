@@ -1,0 +1,72 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void recebeDados(double[] mesEKwh,String[] meses){
+        Scanner sc = new Scanner(System.in);
+        for (int i = 0; i<12 ;i++){
+            System.out.println("Qual foi o gasto de Kwh do mes de "+meses[i]);
+            mesEKwh[i] = sc.nextDouble();
+        }
+    }
+    public static double consumoTotal(double[] mesEKwh){
+        double soma = 0;
+        for (int i = 0; i<12;i++){
+            soma += mesEKwh[i];
+        }
+        return soma;
+    }
+    public static double mediaMensal(double soma){
+        return soma / 12;
+    }
+    public static void mesComMaiorConsumo(double[] mesEKwh,String[] meses){
+        double maiorConsumo = -9999999;
+        String mesMaiorConsumo = "";
+        for (int i = 0; i<12;i++){
+            if (mesEKwh[i] > maiorConsumo){
+                maiorConsumo = mesEKwh[i];
+                mesMaiorConsumo = meses[i];
+            }
+        }
+        System.out.println("O mês com maior consumo foi o mês de "+mesMaiorConsumo+" e seu consumo foi de: "+maiorConsumo);
+    }
+    public static void mesComMenorConsumo(double[] mesEKwh,String[] meses){
+        double menorConsumo = 9999999;
+        String menorMes = "";
+        for (int i = 0; i<12;i++){
+            if (mesEKwh[i] < menorConsumo){
+                menorConsumo = mesEKwh[i];
+                menorMes = meses[i];
+
+            }
+        }
+        System.out.println("O mês com menor consumo foi o mês de "+menorMes+" e seu consumo foi de: "+menorConsumo);
+    }
+    public static void classificacaoDeConsumo(double mediaMensal){
+        if (mediaMensal <= 150){
+            System.out.println("A sua média de consumo é BAIXA");
+        }
+        else if (mediaMensal > 150 && mediaMensal <= 300){
+            System.out.println("A sua média de consumo é MODERADA");
+        }
+        else {
+            System.out.println("A sua média de consumo é ALTA");
+        }
+    }
+
+    public static void main(String[] args) {
+double[] mesEKwh = new double[12];
+String[] meses = {"Janeiro","Fevereiro","Março","Abril","Maio","Junho","julho","Agosto","Setembro","Outubro","Novembro","Dezembro"};
+double somaTodosMeses;
+double mediaMensal;
+
+recebeDados(mesEKwh,meses);
+somaTodosMeses = consumoTotal(mesEKwh);
+mediaMensal = mediaMensal(somaTodosMeses);
+        System.out.println("--------DADOS-DE-CONSUMO-DE-ENERGIA--------");
+        System.out.println("O consumo total de energia foi: "+somaTodosMeses );
+        System.out.println("A média mensal de consumo de energia foi: "+String.format("%.2f",mediaMensal));
+        mesComMaiorConsumo(mesEKwh,meses);
+        mesComMenorConsumo(mesEKwh,meses);
+        classificacaoDeConsumo(mediaMensal);
+    }
+}
