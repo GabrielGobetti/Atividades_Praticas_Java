@@ -1,0 +1,42 @@
+public class Empregado {
+    int id;
+    String nome;
+    String sobrenome;
+    double salario;
+
+    public Empregado(int id, String nome, String sobrenome, double salario) {
+        this.id = id;
+        this.nome = nome;
+        this.sobrenome = sobrenome;
+        this.salario = salario;
+
+    }
+
+    public double salarioAnual () {
+           return salario * 12;
+
+        }
+    public String nomeCompleto(){
+        return nome +" "+ sobrenome;
+    }
+    public double aumentoSalarial(){
+        return salario = salario * 1.10;
+
+    }
+
+}
+-----Main------
+
+public class Main {
+    public static void main(String[] args) {
+    Empregado e1 = new Empregado(1,"Cleber","Machado",1200);
+
+        System.out.println("O salario anual do funcionario "+e1.nomeCompleto()+ "é: R$ "+e1.salarioAnual());
+        System.out.println();
+        System.out.println("O salario do funcionario "+e1.nomeCompleto()+" é: R$ "+ e1.salario);
+        System.out.println();
+        System.out.println("O funcionario "+e1.nomeCompleto()+" recebeu um aumento, o novo salario dele é: R$ "+ e1.aumentoSalarial());
+        System.out.println();
+        System.out.println("O salario anual do funcionario "+e1.nomeCompleto()+ "é: R$ "+e1.salarioAnual());
+    }
+}
